@@ -40,5 +40,26 @@ struct FlickrAPI {
     // lets define a function to make the request using the url we just constructed
     static func fetchInterestingPhotos() {
         let url = FlickrAPI.flickrURL()
+        
+        // now we need to make the request and get the JSON data back
+        // we will use a background task to do this
+        let task = URLSession.shared.dataTask(with: url) { (dataOptional, urlResponseOptional, errorOptional) in
+            // this closure executes later...
+            // when the task gets a respone from the Flickr API server
+            // could be an error!!
+            // the JSON data (if its there) will be in dataOptional (of type Data?)
+            if let data = dataOptional, let dataString = String(data: data, encoding: .utf8) {
+                print("we got data!!")
+                print(dataString)
+            }
+            else {
+                if let error = errorOptional {
+                    print("Error getting the Data \(error)")
+                }
+            }
+        }
+        // by default tasks are created in the suspended state
+        // call resume() to start the task
+        task.resume()
     }
 }
