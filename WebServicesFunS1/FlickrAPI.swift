@@ -33,7 +33,7 @@ struct FlickrAPI {
         var components = URLComponents(string: FlickrAPI.baseURL)!
         components.queryItems = queryItems
         let url = components.url!
-        //print(url)
+        print(url)
         return url
     }
     
