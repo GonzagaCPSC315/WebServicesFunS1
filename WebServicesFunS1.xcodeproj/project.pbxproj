@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		450B871F255C68B800811A62 /* InterestingPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B871E255C68B800811A62 /* InterestingPhoto.swift */; };
 		AEE14DD1255B64C200F7DB97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE14DD0255B64C200F7DB97 /* AppDelegate.swift */; };
 		AEE14DD3255B64C200F7DB97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE14DD2255B64C200F7DB97 /* SceneDelegate.swift */; };
 		AEE14DD5255B64C200F7DB97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE14DD4255B64C200F7DB97 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		450B871E255C68B800811A62 /* InterestingPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhoto.swift; sourceTree = "<group>"; };
 		AEE14DCD255B64C200F7DB97 /* WebServicesFunS1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServicesFunS1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE14DD0255B64C200F7DB97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE14DD2255B64C200F7DB97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				AEE14DDB255B64C300F7DB97 /* LaunchScreen.storyboard */,
 				AEE14DDE255B64C300F7DB97 /* Info.plist */,
 				AEE14DE9255B64F700F7DB97 /* FlickrAPI.swift */,
+				450B871E255C68B800811A62 /* InterestingPhoto.swift */,
 			);
 			path = WebServicesFunS1;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE14DD5255B64C200F7DB97 /* ViewController.swift in Sources */,
+				450B871F255C68B800811A62 /* InterestingPhoto.swift in Sources */,
 				AEE14DD1255B64C200F7DB97 /* AppDelegate.swift in Sources */,
 				AEE14DD3255B64C200F7DB97 /* SceneDelegate.swift in Sources */,
 				AEE14DEA255B64F700F7DB97 /* FlickrAPI.swift in Sources */,
