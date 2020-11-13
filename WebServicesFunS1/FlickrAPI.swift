@@ -74,6 +74,51 @@ struct FlickrAPI {
     static func interestingPhotos(fromData data: Data) -> [InterestingPhoto]? {
         // if anything goes wrong, return nil
         
+        // MARK: - JSON
+        // javascript object notation
+        // most the common format for passing data around the web
+        // JSON is just a dictionary
+        // keys are strings
+        // values are strings, nested JSON objects, arrays, ints, bools, etc.
+        // our goal is to get the JSON data into a swift dictionary [String: Any]
+        // there are libraries that make this really easy... swiftyJSON
+        // we are going do this long way!!
+        
+        do {
+            let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+            guard let jsonDictionary = jsonObject as? [String: Any], let photosObject = jsonDictionary["photos"] as? [String: Any], let photoArray = photosObject["photo"] as? [[String: Any]] else {
+                print("Error parsing JSON")
+                return nil
+            }
+            
+            print("we got the photoArray")
+            var interestingPhotos = [InterestingPhoto]()
+            for photoObject in photoArray {
+                // parse an InterestingPhoto from the photoObject JSON
+                if let interestingPhoto = interestingPhoto(fromJSON: photoObject) {
+                    interestingPhotos.append(interestingPhoto)
+                }
+            }
+            // GS: added after class
+            if !interestingPhotos.isEmpty {
+                return interestingPhotos
+            }
+        }
+        catch {
+            print("Error coverting Data to JSON \(error)")
+        }
+        
         return nil
+    }
+    
+    static func interestingPhoto(fromJSON json: [String: Any]) -> InterestingPhoto? {
+        // task: finish this method...
+        guard let id = json["id"] as? String, let title = json["title"] as? String, let dateTaken = json["datetaken"] as? String, let photoURL = json["url_h"] as? String else {
+            return nil
+        }
+        
+        // we have everything we need to make and return InterestingPhoto
+        // GS: added after class
+        return InterestingPhoto(id: id, title: title, dateTaken: dateTaken, photoURL: photoURL)
     }
 }
