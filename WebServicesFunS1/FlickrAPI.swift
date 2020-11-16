@@ -38,7 +38,8 @@ struct FlickrAPI {
     }
     
     // lets define a function to make the request using the url we just constructed
-    static func fetchInterestingPhotos() {
+    // @escaping tells the compiler that this completion closure executes after the method returns
+    static func fetchInterestingPhotos(completion: @escaping ([InterestingPhoto]?) -> Void) {
         let url = FlickrAPI.flickrURL()
         
         // now we need to make the request and get the JSON data back
@@ -58,6 +59,18 @@ struct FlickrAPI {
                 if let interestingPhotos = interestingPhotos(fromData: data) {
                     print("we got [InterestingPhoto] with \(interestingPhotos.count) photos")
                     // to pass the array back to ViewController for displaying
+                    // PROBLEMS!!
+                    // MARK: - Threads
+                    // so far, our code in ViewController (for example) is running on the main UI thread
+                    // the main UI thread listens for user interactions, it calls callbacks in view controllers and delegates, etc.
+                    // we don't want to run long running tasks/code on the main UI thread, why?
+                    // it can make the UI unresponsive
+                    // by default, URLSession dataTasks run on a background thread
+                    // so that means this closure we are in now, runs asynchronously on a background thread
+                    // we cannot simply return interestingPhotos array to viewDidLoad() because it has already returned
+                    // we need a completion handler (AKA closure) that we call when we have a result
+                    completion(interestingPhotos)
+                    // TODO: should completion(nil) on failure
                 }
             }
             else {

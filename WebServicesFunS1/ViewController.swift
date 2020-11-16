@@ -33,7 +33,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        FlickrAPI.fetchInterestingPhotos()
+        FlickrAPI.fetchInterestingPhotos { (interestingPhotosOptional) in
+            if let interestingPhotos = interestingPhotosOptional {
+                print("in ViewController got the array back")
+            }
+        }
     }
 
     @IBAction func nextPhotoPressed(_ sender: UIButton) {
