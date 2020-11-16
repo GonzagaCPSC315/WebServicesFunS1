@@ -69,13 +69,25 @@ struct FlickrAPI {
                     // so that means this closure we are in now, runs asynchronously on a background thread
                     // we cannot simply return interestingPhotos array to viewDidLoad() because it has already returned
                     // we need a completion handler (AKA closure) that we call when we have a result
-                    completion(interestingPhotos)
-                    // TODO: should completion(nil) on failure
+                    // we need to call completion from the main UI thread because it needs to update the UI
+                    // a thread in iOS is managed by a queue
+                    DispatchQueue.main.async {
+                        completion(interestingPhotos)
+                    }
+                    // should completion(nil) on failure
+                }
+                else {
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
                 }
             }
             else {
                 if let error = errorOptional {
                     print("Error getting the Data \(error)")
+                }
+                DispatchQueue.main.async {
+                    completion(nil)
                 }
             }
         }

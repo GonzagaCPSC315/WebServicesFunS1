@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
+    
+    var interestingPhotos = [InterestingPhoto]()
+    var currPhotoIndex: Int? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +39,29 @@ class ViewController: UIViewController {
         FlickrAPI.fetchInterestingPhotos { (interestingPhotosOptional) in
             if let interestingPhotos = interestingPhotosOptional {
                 print("in ViewController got the array back")
+                self.interestingPhotos = interestingPhotos
+                self.currPhotoIndex = 0
+                self.updateUI()
             }
+        }
+    }
+    
+    func updateUI() {
+        if let index = currPhotoIndex {
+            let photo = interestingPhotos[index]
+            // update the title label, date label, and eventually the image view
+            titleLabel.text = photo.title
+            dateLabel.text = photo.dateTaken
+            // TODO: fetch image...
+            
+            currPhotoIndex? += 1
+            currPhotoIndex? %= interestingPhotos.count
         }
     }
 
     @IBAction func nextPhotoPressed(_ sender: UIButton) {
         print("next photo pressed")
+        updateUI()
     }
 }
 
