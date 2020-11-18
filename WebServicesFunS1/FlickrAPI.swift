@@ -154,6 +154,17 @@ struct FlickrAPI {
             if let data = dataOptional, let image = UIImage(data: data) {
                 // task: call completion, pass in the image
                 // update the UIImageView :)
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            }
+            else {
+                if let error = errorOptional {
+                    print("Error fetching image \(error)")
+                }
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
             }
         }
         task.resume()

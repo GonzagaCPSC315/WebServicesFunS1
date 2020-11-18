@@ -52,7 +52,12 @@ class ViewController: UIViewController {
             // update the title label, date label, and eventually the image view
             titleLabel.text = photo.title
             dateLabel.text = photo.dateTaken
-            // TODO: fetch image...
+            // fetch image...
+            FlickrAPI.fetchImage(fromURLString: photo.photoURL) { (imageOptional) in
+                if let image = imageOptional {
+                    self.imageView.image = image
+                }
+            }
             
             currPhotoIndex? += 1
             currPhotoIndex? %= interestingPhotos.count
