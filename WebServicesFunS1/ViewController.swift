@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 // MARK: - Flickr API Setup
 // we are gonna build an app that will fetch
@@ -36,6 +37,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        // show the indeterminate progress bar while our background task is running
+        // hide it when it is done
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         FlickrAPI.fetchInterestingPhotos { (interestingPhotosOptional) in
             if let interestingPhotos = interestingPhotosOptional {
                 print("in ViewController got the array back")
@@ -43,6 +47,8 @@ class ViewController: UIViewController {
                 self.currPhotoIndex = 0
                 self.updateUI()
             }
+            MBProgressHUD.hide(for: self.view, animated: true)
+            // task: show/hide the progress bar for fetching an image
         }
     }
     
@@ -53,10 +59,12 @@ class ViewController: UIViewController {
             titleLabel.text = photo.title
             dateLabel.text = photo.dateTaken
             // fetch image...
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             FlickrAPI.fetchImage(fromURLString: photo.photoURL) { (imageOptional) in
                 if let image = imageOptional {
                     self.imageView.image = image
                 }
+                MBProgressHUD.hide(for: self.view, animated: true)
             }
             
             currPhotoIndex? += 1

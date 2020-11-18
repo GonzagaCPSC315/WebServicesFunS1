@@ -15,10 +15,13 @@
 		AEE14DDD255B64C300F7DB97 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE14DDB255B64C300F7DB97 /* LaunchScreen.storyboard */; };
 		AEE14DE6255B64E600F7DB97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEE14DE5255B64E600F7DB97 /* Main.storyboard */; };
 		AEE14DEA255B64F700F7DB97 /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE14DE9255B64F700F7DB97 /* FlickrAPI.swift */; };
+		DA0E8F0926080DBC4D1A8BD5 /* Pods_WebServicesFunS1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6382738AB9745097450055E4 /* Pods_WebServicesFunS1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		450B871E255C68B800811A62 /* InterestingPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingPhoto.swift; sourceTree = "<group>"; };
+		6382738AB9745097450055E4 /* Pods_WebServicesFunS1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebServicesFunS1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80BF3027D06D7A107C06B817 /* Pods-WebServicesFunS1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServicesFunS1.debug.xcconfig"; path = "Target Support Files/Pods-WebServicesFunS1/Pods-WebServicesFunS1.debug.xcconfig"; sourceTree = "<group>"; };
 		AEE14DCD255B64C200F7DB97 /* WebServicesFunS1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebServicesFunS1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE14DD0255B64C200F7DB97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE14DD2255B64C200F7DB97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		AEE14DDE255B64C300F7DB97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE14DE5255B64E600F7DB97 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AEE14DE9255B64F700F7DB97 /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		E50F1EA57077AA37EBD66B0D /* Pods-WebServicesFunS1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebServicesFunS1.release.xcconfig"; path = "Target Support Files/Pods-WebServicesFunS1/Pods-WebServicesFunS1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA0E8F0926080DBC4D1A8BD5 /* Pods_WebServicesFunS1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BB7ECF43A121C4EC55D51D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80BF3027D06D7A107C06B817 /* Pods-WebServicesFunS1.debug.xcconfig */,
+				E50F1EA57077AA37EBD66B0D /* Pods-WebServicesFunS1.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8557F8134CB9FE0E3C6DA2D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6382738AB9745097450055E4 /* Pods_WebServicesFunS1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AEE14DC4255B64C200F7DB97 = {
 			isa = PBXGroup;
 			children = (
 				AEE14DCF255B64C200F7DB97 /* WebServicesFunS1 */,
 				AEE14DCE255B64C200F7DB97 /* Products */,
+				7BB7ECF43A121C4EC55D51D2 /* Pods */,
+				8557F8134CB9FE0E3C6DA2D1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +105,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEE14DE1255B64C300F7DB97 /* Build configuration list for PBXNativeTarget "WebServicesFunS1" */;
 			buildPhases = (
+				DA921884E91D504E3C931A50 /* [CP] Check Pods Manifest.lock */,
 				AEE14DC9255B64C200F7DB97 /* Sources */,
 				AEE14DCA255B64C200F7DB97 /* Frameworks */,
 				AEE14DCB255B64C200F7DB97 /* Resources */,
+				8ECD59EA3A1187D93D1B231F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +164,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8ECD59EA3A1187D93D1B231F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebServicesFunS1/Pods-WebServicesFunS1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WebServicesFunS1/Pods-WebServicesFunS1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WebServicesFunS1/Pods-WebServicesFunS1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA921884E91D504E3C931A50 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WebServicesFunS1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AEE14DC9255B64C200F7DB97 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		AEE14DE2255B64C300F7DB97 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80BF3027D06D7A107C06B817 /* Pods-WebServicesFunS1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +371,7 @@
 		};
 		AEE14DE3255B64C300F7DB97 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E50F1EA57077AA37EBD66B0D /* Pods-WebServicesFunS1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
